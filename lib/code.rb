@@ -10,4 +10,10 @@ class Code
 
     @sequence = arr
   end
+
+  def view
+    @sequence.each do |num|
+      puts num.to_s.colorize(color: @colors[num], background: :black)
+    end
+  end
 end
