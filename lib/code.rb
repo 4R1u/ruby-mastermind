@@ -12,7 +12,7 @@ class Code
   end
 
   def view
-    colors = [0, :red, :yellow, :green, :blue, :orange, :purple]
+    colors = [0, :red, :yellow, :green, :blue, :light_yellow, :magenta]
     @sequence.each do |num|
       print num.to_s.colorize(color: colors[num], background: :black)
     end
