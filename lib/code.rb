@@ -17,4 +17,14 @@ class Code
       print num.to_s.colorize(color: colors[num], background: :black)
     end
   end
+
+  def push(num)
+    if !(1..6).cover?(num)
+      puts 'Must be a valid number (1-6).'
+    elsif @sequence.length >= 4
+      puts 'Code full'
+    else
+      @sequence << num
+    end
+  end
 end
