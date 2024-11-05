@@ -27,5 +27,6 @@ class Code
     else
       @sequence << num
     end
+    nil
   end
 end
