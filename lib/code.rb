@@ -16,6 +16,7 @@ class Code
     @sequence.each do |num|
       print num.to_s.colorize(color: colors[num], background: :black)
     end
+    puts
   end
 
   def push(num)
