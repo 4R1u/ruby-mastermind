@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'colorize'
+
 # Sequence of colors.
 class Code
   def initialize(arr)
