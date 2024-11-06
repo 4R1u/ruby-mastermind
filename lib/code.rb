@@ -29,4 +29,16 @@ class Code
     end
     nil
   end
+
+  def compare(arr)
+    result = { white: 0, red: 0 }
+    arr.each_with_index do |num, index|
+      if num == @sequence[index]
+        result[:red] += 1
+      elsif @sequence.include?(num)
+        result[:white] += 1
+      end
+    end
+    result
+  end
 end
