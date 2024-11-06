@@ -31,6 +31,8 @@ class Code
   end
 
   def compare(arr)
+    return unless array.length == 4
+
     result = { white: 0, red: 0 }
     arr.each_with_index do |num, index|
       if num == @sequence[index]
