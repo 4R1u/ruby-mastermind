@@ -7,4 +7,8 @@ class Game
   def initialize(code = Code.new([]))
     @code = code
   end
+
+  def guess(arr)
+    @sequence.compare(arr)
+  end
 end
