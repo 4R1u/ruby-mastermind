@@ -19,17 +19,6 @@ class Code
     puts
   end
 
-  def push(num)
-    if !(1..6).cover?(num)
-      puts 'Must be a valid number (1-6).'
-    elsif @sequence.length >= 4
-      puts 'Code full'
-    else
-      @sequence << num
-    end
-    nil
-  end
-
   def compare(arr)
     return unless arr.length == 4
 
