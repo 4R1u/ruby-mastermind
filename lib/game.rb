@@ -10,7 +10,7 @@ class Game
   end
 
   def guess(arr)
-    return unless @guesses_left > 0
+    return unless @guesses_left.positive?
 
     @guesses_left -= 1
     @sequence.compare(arr)
