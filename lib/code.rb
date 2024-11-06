@@ -5,8 +5,8 @@ require 'colorize'
 # Sequence of colors.
 class Code
   def initialize(arr)
-    @sequence = []
-    return unless arr.all?((1..6)) && arr.length == 4
+    @sequence = Array.new(4) { rand(1..6) }
+    return unless !arr.is_a?(Array) || (arr.all?((1..6)) && arr.length == 4)
 
     @sequence = arr
   end
