@@ -4,7 +4,7 @@ require 'colorize'
 
 # Sequence of colors.
 class Code
-  def initialize(arr)
+  def initialize(arr = Array.new(4) { rand(1..6) })
     @sequence = Array.new(4) { rand(1..6) }
     return unless !arr.is_a?(Array) || (arr.all?((1..6)) && arr.length == 4)
 
@@ -31,7 +31,7 @@ class Code
   end
 
   def compare(arr)
-    return unless array.length == 4
+    return unless arr.length == 4
 
     result = { white: 0, red: 0 }
     arr.each_with_index do |num, index|

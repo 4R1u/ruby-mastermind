@@ -13,6 +13,6 @@ class Game
     return unless @guesses_left.positive?
 
     @guesses_left -= 1
-    @sequence.compare(arr)
+    @code.compare(arr)
   end
 end
