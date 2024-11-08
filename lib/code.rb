@@ -24,12 +24,23 @@ class Code
 
     result = { white: 0, red: 0 }
     sequence = @sequence.map { |element| element }
+    result = count_red_pegs(arr, sequence, result)
+    count_white_pegs(arr, sequence, result)
+  end
+
+  private
+
+  def count_red_pegs(arr, sequence, result)
     sequence.each_with_index do |item, index|
       if item == arr[index]
         result[:red] += 1
         arr[index] = sequence[index] = 0
       end
     end
+    result
+  end
+
+  def count_white_pegs(arr, sequence, result)
     arr.each_with_index do |item, index|
       next if item.zero?
 
