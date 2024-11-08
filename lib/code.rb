@@ -13,10 +13,11 @@ class Code
 
   def view
     colors = [0, :red, :yellow, :green, :blue, :light_yellow, :magenta]
+    result = ''
     @sequence.each do |num|
-      print num.to_s.colorize(color: colors[num], background: :black)
+      result += num.to_s.colorize(color: colors[num], background: :black)
     end
-    puts
+    result
   end
 
   def compare(arr)
@@ -24,6 +25,7 @@ class Code
 
     result = { white: 0, red: 0 }
     sequence = @sequence.map { |element| element }
+    arr = arr.map { |element| element }
     result = count_red_pegs(arr, sequence, result)
     count_white_pegs(arr, sequence, result)
   end

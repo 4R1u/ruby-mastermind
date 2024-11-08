@@ -16,6 +16,20 @@ class Game
     return unless @guesses_left.positive?
 
     @guesses_left -= 1
-    @code.compare(arr)
+    result = @code.compare(arr)
+    puts @state += Code.new(arr).view << ' ' <<
+                   view_result(result) << "\n"
+    result
+  end
+
+  private
+
+  def view_result(result)
+    ('.' * result[:red])
+      .colorize(color: :red, background: :black) +
+      ('.' * result[:white])
+      .colorize(color: :white, background: :black) +
+      (' ' * (4 - result[:white] - result[:red]))
+      .colorize(background: :black)
   end
 end
