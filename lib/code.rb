@@ -23,11 +23,20 @@ class Code
     return unless arr.length == 4
 
     result = { white: 0, red: 0 }
-    arr.each_with_index do |num, index|
-      if num == @sequence[index]
+    sequence = @sequence.map { |element| element }
+    sequence.each_with_index do |item, index|
+      if item == arr[index]
         result[:red] += 1
-      elsif @sequence.include?(num)
+        arr[index] = sequence[index] = 0
+      end
+    end
+    arr.each_with_index do |item, index|
+      next if item.zero?
+
+      location = sequence.index(item)
+      if location
         result[:white] += 1
+        arr[index] = sequence[location] = 0
       end
     end
     result
