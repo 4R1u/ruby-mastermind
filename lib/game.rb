@@ -14,18 +14,14 @@ class Game
   end
 
   def guess(arr)
-    return if @win_state == 'Won'
-
-    unless @guesses_left.positive?
-      @win_state = 'Lost'
-      return
-    end
+    return unless @win_state == 'Indecisive'
 
     @guesses_left -= 1
     result = @code.compare(arr)
     puts @state += Code.new(arr).view << ' ' <<
                    view_result(result) << "\n"
     @win_state = 'Won' if result[:red] == 4
+    @win_state = 'Lost' if guesses_left.zero?
     result
   end
 
