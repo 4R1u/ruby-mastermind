@@ -14,7 +14,7 @@ class Game
   end
 
   def guess(arr)
-    return unless @win_state == 'Indecisive'
+    return {} unless @win_state == 'Indecisive'
 
     @guesses_left -= 1
     result = @code.compare(arr)
