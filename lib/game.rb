@@ -21,7 +21,7 @@ class Game
     puts @state += Code.new(arr).view << ' ' <<
                    view_result(result) << "\n"
     @win_state = 'Won' if result[:red] == 4
-    @win_state = 'Lost' if guesses_left.zero?
+    @win_state = 'Lost' if @guesses_left.zero?
     result
   end
 
