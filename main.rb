@@ -16,8 +16,10 @@ loop do
     break unless game.win_state == 'Indecisive'
   end
   puts 'Would you like to play again? [y]'
-  unless gets.chomp.downcase == 'y'
-    puts "Wins: #{human.wins}"
-    break
-  end
+  next if gets.chomp.downcase == 'y'
+
+  puts "Wins: #{human.wins}"
+  puts "Losses: #{human.losses}"
+  puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
+  break
 end
