@@ -3,3 +3,5 @@
 require_relative 'lib/code'
 require_relative 'lib/game'
 require_relative 'lib/player'
+
+human = Player.new
