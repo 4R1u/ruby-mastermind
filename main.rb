@@ -16,5 +16,8 @@ loop do
     break unless game.win_state == 'Indecisive'
   end
   puts 'Would you like to play again? [y]'
-  break unless gets.chomp.downcase == 'y'
+  unless gets.chomp.downcase == 'y'
+    puts "Wins: #{human.wins}"
+    break
+  end
 end
