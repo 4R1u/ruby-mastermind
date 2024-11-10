@@ -2,7 +2,6 @@
 
 require_relative 'game'
 
-# TODO: implement player being able to create the code
 # Represents a player
 class Player
   attr_reader :wins, :losses
