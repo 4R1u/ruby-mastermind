@@ -14,5 +14,6 @@ class Player
   def attempt(game, arr)
     try = game.guess(arr)
     @wins += 1 if try[:red] == 4
+    try
   end
 end
