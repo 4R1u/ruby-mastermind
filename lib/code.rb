@@ -11,6 +11,10 @@ class Code
     @sequence = arr
   end
 
+  def self.valid_guess?(str)
+    str.length == 4 && str.chars.all?('1'..'6')
+  end
+
   def view
     colors = [0, :red, :yellow, :green, :blue, :light_yellow, :magenta]
     result = ''
