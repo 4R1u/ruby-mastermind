@@ -8,5 +8,10 @@ class Bot
 
   def initialize
     @wins = 0
+    @all_possible_solutions = []
+    1296.times do |i|
+      @all_possible_solutions <<
+        [i / 6 / 6 / 6 % 6, i / 6 / 6 % 6, i / 6 % 6, i % 6]
+    end
   end
 end
