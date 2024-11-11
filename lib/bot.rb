@@ -3,11 +3,9 @@
 require_relative 'game'
 
 # Represents the Computer Player Trying to Guess A Game
-class Bot
-  attr_reader :wins
-
+class Bot < Player
   def initialize
-    @wins = 0
+    super.initialize
     @all_possible_solutions = []
     1296.times do |i|
       @all_possible_solutions <<
