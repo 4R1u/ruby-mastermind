@@ -2,16 +2,13 @@
 
 require_relative 'game'
 
+ALL_GUESSES = (0..1295).map do |i|
+  [(i / 6 / 6 / 6 % 6) + 1,
+   (i / 6 / 6 % 6) + 1,
+   (i / 6 % 6) + 1,
+   (i % 6) + 1]
+end
+
 # Represents the Computer Player Trying to Guess A Game
 class Bot < Player
-  private
-
-  def array_of_possible_solutions
-    all_possible_solutions = []
-    1296.times do |i|
-      all_possible_solutions <<
-        [i / 6 / 6 / 6 % 6, i / 6 / 6 % 6, i / 6 % 6, i % 6]
-    end
-    all_possible_solutions
-  end
 end
