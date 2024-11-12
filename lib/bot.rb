@@ -11,4 +11,11 @@ end
 
 # Represents the Computer Player Trying to Guess A Game
 class Bot < Player
+  private
+
+  def eliminate_responses(solution_array, comparison_code, response_desired)
+    solution_array.select! do |code|
+      comparison_code.compare(code) == response_desired
+    end
+  end
 end
