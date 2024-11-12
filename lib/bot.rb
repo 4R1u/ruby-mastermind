@@ -29,6 +29,6 @@ class Bot < Player
     solution_array.each do |guess|
       return guess if maxima_in_all[ALL_GUESSES.index(guess)] == minimum
     end
-    minimum
+    ALL_GUESSES[minimum_in_all.index(minimum)]
   end
 end
