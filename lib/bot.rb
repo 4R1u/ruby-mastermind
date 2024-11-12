@@ -21,10 +21,9 @@ class Bot < Player
   end
 
   def next_guess(prev_guess, solution_array)
-    maxima_in_all = ALL_GUESSES.map do |guess|
-      eliminate_responses(
-        solution_array, Code.new(guess), Code.new(prev_guess).compare(guess)
-      ).length
+    maxima_in_all = ALL_GUESSES.reject { |i| i == prev_guess }.map do |guess|
+      eliminate_responses(solution_array, Code.new(guess),
+                          Code.new(prev_guess).compare(guess)).length
     end
     minimum = maxima_in_all.min
     solution_array.each do |guess|
