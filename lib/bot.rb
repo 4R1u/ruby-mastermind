@@ -20,6 +20,14 @@ class Bot < Player
     end
   end
 
+  def score_guess(solution_array, comparison_code, response_desired)
+    responses_left = 0
+    solution_array.each do |code|
+      responses_left += 1 if comparison_code.compare(code) == response_desired
+    end
+    responses_left
+  end
+
   def next_guess(prev_guess, solution_array)
     maxima_in_all = ALL_GUESSES.reject { |i| i == prev_guess }.map do |guess|
       eliminate_responses(solution_array, Code.new(guess),
