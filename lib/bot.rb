@@ -28,8 +28,16 @@ class Bot < Player
     responses_left
   end
 
+  def remove_guess(guess)
+    new_space = ALL_GUESSES.map(&:itslelf)
+    ALL_GUESSES.each_with_index do |code, index|
+      new_space[index] = (code == guess ? ALL_GUESSES[index - 1] : code)
+    end
+    new_space
+  end
+
   def next_guess(prev_guess, solution_array)
-    maxima_in_all = ALL_GUESSES.reject { |i| i == prev_guess }.map do |guess|
+    maxima_in_all = remove_guess(prev_guess).map do |guess|
       score_guess(solution_array, Code.new(guess),
                   Code.new(prev_guess).compare(guess))
     end
