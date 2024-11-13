@@ -29,7 +29,7 @@ class Bot < Player
   end
 
   def remove_guess(guess)
-    new_space = ALL_GUESSES.map(&:itslelf)
+    new_space = ALL_GUESSES.map(&:itself)
     ALL_GUESSES.each_with_index do |code, index|
       new_space[index] = (code == guess ? ALL_GUESSES[index - 1] : code)
     end
