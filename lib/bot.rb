@@ -33,15 +33,14 @@ class Bot < Player
     .max
   end
 
-  def next_guess(prev_guess, solution_array)
-    maxima_in_all = remove_guess(prev_guess).map do |guess|
-      score_guess(solution_array, Code.new(guess),
-                  Code.new(prev_guess).compare(guess))
+  def next_guess(solution_array, all_guesses)
+    maxima_in_all = all_guesses.map do |guess|
+      score_guess(solution_array, Code.new(guess))
     end
     minimum = maxima_in_all.min
     solution_array.each do |guess|
-      return guess if maxima_in_all[ALL_GUESSES.index(guess)] == minimum
+      return guess if maxima_in_all[all_guesses.index(guess)] == minimum
     end
-    ALL_GUESSES[maxima_in_all.index(minimum)]
+    all_guesses[maxima_in_all.index(minimum)]
   end
 end
