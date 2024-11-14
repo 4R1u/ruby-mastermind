@@ -12,6 +12,18 @@ end
 
 # Represents the Computer Player Trying to Guess A Game
 class Bot < Player
+  def solve(game)
+    all_guesses = solutions = ALL_GUESSES.map(&:itself)
+    guess = [1, 1, 2, 2]
+    response = game.guess(guess)
+    until response[:red] == 4
+      all_guesses.delete(guess)
+      solutions = eliminate_responses(solutions, Code.new(guess), response)
+      guess = next_guess(solutions, all_guesses)
+      response = game.guess(guess)
+    end
+  end
+
   private
 
   def eliminate_responses(solution_array, comparison_code, response_desired)
