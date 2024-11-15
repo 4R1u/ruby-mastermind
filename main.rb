@@ -18,8 +18,6 @@ if type == 1
     break if gets.chomp == 'y'
   end
   puts "Wins: #{bot.wins}"
-  puts "Losses: #{bot.losses}"
-  puts "W/L: #{bot.losses.zero? ? 'Infinity' : bot.wins / bot.losses.to_f}"
 
 else
   human = Player.new
