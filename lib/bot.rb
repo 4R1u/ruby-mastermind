@@ -34,6 +34,7 @@ class Bot < Player
       guess = next_guess(solutions, all_guesses)
       response = user_feedback(guess)
     end
+    @wins += 1
   end
 
   private
