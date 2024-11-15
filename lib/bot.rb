@@ -26,6 +26,15 @@ class Bot < Player
 
   private
 
+  def user_feedback
+    red, white = 8
+    puts 'Enter the number of red pegs'
+    red = gets.to_i until (0..4).include?(red)
+    puts 'Enter the number of white pegs'
+    white = gets.to_i until (0..(4 - red)).include?(white)
+    { white: white, red: red }
+  end
+
   def eliminate_responses(solution_array, comparison_code, response_desired)
     solution_array.select do |code|
       comparison_code.compare(code) == response_desired
