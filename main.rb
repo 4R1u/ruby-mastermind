@@ -34,7 +34,7 @@ else
     puts 'Would you like to play again? [y]'
     next if gets.chomp.downcase == 'y'
 
-    puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
+    puts "Wins: #{human.wins}"
     puts "Losses: #{human.losses}"
     puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
   end
