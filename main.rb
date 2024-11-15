@@ -5,22 +5,37 @@ require_relative 'lib/game'
 require_relative 'lib/player'
 require_relative 'lib/bot'
 
-human = Player.new
+type = 3
+puts 'Do you want to be the creator (1) of the secret code or the guesser (2)? ' \
+     'Enter 1 or 2'
+type = gets.to_i until [1, 2].include?(type)
 
-loop do
-  game = Game.new
+if type == 1
+  bot = Bot.new
   loop do
-    attempt = ''
-    puts 'Enter a string of 4 numbers, all between 1 and 6 inclusive'
-    attempt = gets.chomp until Code.valid_guess?(attempt)
-    human.attempt(game, attempt.chars.map(&:to_i))
-    break unless game.win_state == 'Indecisive'
+    bot.blind_solve
+    puts 'Do you want to quit? [y]'
+    break if gets.chomp == 'y'
   end
-  puts 'Would you like to play again? [y]'
-  next if gets.chomp.downcase == 'y'
+  puts "Wins: #{bot.wins}"
+  puts "Losses: #{bot.losses}"
+  puts "W/L: #{bot.losses.zero? ? 'Infinity' : bot.wins / bot.losses.to_f}"
 
-  puts "Wins: #{human.wins}"
-  puts "Losses: #{human.losses}"
-  puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
-  break
+else
+  human = Player.new
+  loop do
+    loop do
+      attempt = ''
+      puts 'Enter a string of 4 numbers, all between 1 and 6 inclusive'
+      attempt = gets.chomp until Code.valid_guess?(attempt)
+      human.attempt(game, attempt.chars.map(&:to_i))
+      break unless game.win_state == 'Indecisive'
+    end
+    puts 'Would you like to play again? [y]'
+    next if gets.chomp.downcase == 'y'
+
+    puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
+    puts "Losses: #{human.losses}"
+    puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
+  end
 end
