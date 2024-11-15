@@ -18,8 +18,9 @@ class Game
 
     @guesses_left -= 1
     result = @code.compare(arr)
-    puts @state += Code.new(arr).view << ' ' <<
-                   view_result(result) << "\n"
+    puts(printed = Code.new(arr).view << ' ' <<
+                   view_result(result) << "\n")
+    @state += printed
     @win_state = 'Won' if result[:red] == 4
     @win_state = 'Lost' if @guesses_left.zero?
     result
