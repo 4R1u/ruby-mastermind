@@ -15,12 +15,12 @@ class Bot < Player
   def solve(game)
     all_guesses = solutions = ALL_GUESSES.map(&:itself)
     guess = [1, 1, 2, 2]
-    response = game.guess(guess)
+    response = attempt(game, guess)
     until response[:red] == 4
       all_guesses.delete(guess)
       solutions = eliminate_responses(solutions, Code.new(guess), response)
       guess = next_guess(solutions, all_guesses)
-      response = game.guess(guess)
+      response = attempt(game, guess)
     end
   end
 
