@@ -24,6 +24,18 @@ class Bot < Player
     end
   end
 
+  def blind_solve
+    all_guesses = solutions = ALL_GUESSES.map(&:itself)
+    guess = [1, 1, 2, 2]
+    response = user_feedback(guess)
+    until response[:red] == 4
+      all_guesses.delete(guess)
+      solutions = eliminate_responses(solutions, Code.new(guess), response)
+      guess = next_guess(solutions, all_guesses)
+      response = user_feedback(guess)
+    end
+  end
+
   private
 
   def user_feedback(guess)
