@@ -26,7 +26,8 @@ class Bot < Player
 
   private
 
-  def user_feedback
+  def user_feedback(guess)
+    Code.new(guess).view
     red, white = 8
     puts 'Enter the number of red pegs'
     red = gets.to_i until (0..4).include?(red)
