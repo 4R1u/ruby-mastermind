@@ -22,6 +22,7 @@ if type == 1
 else
   human = Player.new
   loop do
+    game = Game.new
     loop do
       attempt = ''
       puts 'Enter a string of 4 numbers, all between 1 and 6 inclusive'
