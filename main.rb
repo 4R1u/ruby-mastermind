@@ -36,5 +36,6 @@ else
     puts "Wins: #{human.wins}"
     puts "Losses: #{human.losses}"
     puts "W/L: #{human.losses.zero? ? 'Infinity' : human.wins / human.losses.to_f}"
+    break
   end
 end
