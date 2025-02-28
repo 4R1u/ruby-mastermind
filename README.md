@@ -27,6 +27,14 @@ Install the dependencies with Bundler:
 bundle install
 ```
 
+## Rules
+
+The code-maker creates a 4-character string of non-unique numbers 1-6, and the guesser has 10 turns to guess what the code is
+
+Each turn, the code guesser submits a code of their own, and the maker compares it with the code they have. For every character they got right, which is in the right place, they get a red peg for that guess. And each character that they get right, but not in the right place, they get a white peg.
+
+The game is over when the guesser either runs out of turns, or guesses the code before that.
+
 ## Running
 Simply launch the `main.rb` file through Bundler:
 
